@@ -3,4 +3,6 @@ class Transaction < ApplicationRecord
 
   validates :amount, :date, :name, presence: true
   validates :amount, numericality: true
+
+  scope :in_the_period_of, ->(period) { where date: period }
 end
