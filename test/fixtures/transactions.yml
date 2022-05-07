@@ -10,4 +10,10 @@ two:
   date: 2022-05-06
   name: MyString
   amount: 1
-  user: two
+  user: one
+
+three:
+  date: 2000-05-06
+  name: MyString
+  amount: 1
+  user: one
