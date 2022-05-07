@@ -17,4 +17,12 @@ class User < ApplicationRecord
   def balance_at_point_in_time(time)
     transactions.in_the_period_of(50.years.ago..time).sum(:amount)
   end
+
+  def transactions_in_the_period_of(from, to)
+    {
+      balance_at_start_of_the_period: balance_at_point_in_time(from.to_date),
+      balance_at_end_of_the_period: balance_at_point_in_time(to.to_date),
+      transactions: transactions.in_the_period_of(from.to_date..to.to_date)
+    }
+  end
 end
